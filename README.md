@@ -6,7 +6,9 @@ Self-hosted [ntfy](https://ntfy.sh) on a [Sprite](https://sprites.dev).
 
 ```sh
 sprite console
-curl -fsSL https://raw.githubusercontent.com/lubien/sprite-ntfy/main/install.sh | sh
+wget https://raw.githubusercontent.com/lubien/sprite-ntfy/main/install.sh
+chmod +x ./install.sh
+./install.sh
 ```
 
 Then on your local machine, make the URL public:

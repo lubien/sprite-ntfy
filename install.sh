@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # sprite-ntfy installer
 # Run this inside a sprite console:
-#   curl -fsSL https://raw.githubusercontent.com/lubien/sprite-ntfy/main/install.sh | bash
+#   wget https://raw.githubusercontent.com/lubien/sprite-ntfy/main/install.sh
+#   chmod +x ./install.sh
+#   ./install.sh
 set -euo pipefail
 
 # ── Versions & paths ──────────────────────────────────────────────────────────
