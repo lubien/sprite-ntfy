@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 # sprite-ntfy installer
 # Run this inside a sprite console:
-#   curl -fsSL https://raw.githubusercontent.com/lubien/sprite-ntfy/main/install.sh | sh
-set -eu
+#   curl -fsSL https://raw.githubusercontent.com/lubien/sprite-ntfy/main/install.sh | bash
+set -euo pipefail
 
 # ── Versions & paths ──────────────────────────────────────────────────────────
 NTFY_VERSION="2.23.0"
@@ -143,17 +143,12 @@ else
 
   ADMIN_PASS=""
   while [ -z "$ADMIN_PASS" ]; do
-    stty_save=$(stty -g </dev/tty)
     printf "  Admin password: " >/dev/tty
-    stty -echo </dev/tty
-    read -r ADMIN_PASS </dev/tty
-    stty "$stty_save" </dev/tty
+    IFS= read -rs ADMIN_PASS < /dev/tty
     printf "\n" >/dev/tty
 
     printf "  Confirm password: " >/dev/tty
-    stty -echo </dev/tty
-    read -r _confirm </dev/tty
-    stty "$stty_save" </dev/tty
+    IFS= read -rs _confirm < /dev/tty
     printf "\n" >/dev/tty
 
     if [ -z "$ADMIN_PASS" ]; then
